@@ -5,56 +5,125 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Business Model Canvas</title>
 	<style>
+		html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+		body{
+			margin: 0;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
 		#business-model-canvas {
 			display: grid;
 			grid-template-columns: repeat(10, 1fr);
 			grid-template-rows: repeat(3, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-			justify-items: stretch;
-			align-items: stretch;
+			gap: 0px;
+			/* justify-items: stretch;
+			align-items: stretch; */
 			min-height: 100svh;
+			border-bottom: 1px solid black;
+			border-right: 1px solid black;
+			> div {
+				display: flex;
+				flex-direction: column;
+				border-top: 1px solid black;
+				border-left: 1px solid black;
+				padding: 0.5rem;
+				textarea {
+					height: 100%;
+				}
+			}
 			#customer-segments {
 				grid-area: 1 / 9 / 3 / 11;
 			}
 			#value-propositions {
-				grid-area: 1 / 3 / 3 / 4;
+				grid-area: 1 / 5 / 3 / 7;
 			}
 			#channels {
-				grid-area: 2 / 4 / 3 / 5;
+				grid-area: 2 / 7 / 3 / 9;
 			}
 			#customer-relationships {
-				grid-area: 1 / 4 / 2 / 5;
+				grid-area: 1 / 7 / 2 / 9;
 			}
 			#revenue-streams {
-				grid-area: 3 / 3 / 4 / 4;
+				grid-area: 3 / 6 / 4 / 11;
 			}
 			#key-resources {
-				grid-area: 3 / 4 / 4 / 5;
+				grid-area: 2 / 3 / 3 / 5;
 			}
 			#key-activities {
-				grid-area: 4 / 1 / 5 / 2;
+				grid-area: 1 / 3 / 2 / 5;
 			}
 			#key-partnerships {
-				grid-area: 4 / 2 / 5 / 3;
+				grid-area: 1 / 1 / 3 / 3;
 			}
 			#cost-structure {
-				grid-area: 4 / 3 / 5 / 4;
+				grid-area: 3 / 1 / 4 / 6;
 			}
 		}
 	</style>
 </head>
 <body>
 	<div id="business-model-canvas">
-		<div id="customer-segments">Customer Segments</div>
-		<div id="value-propositions">Value Propositions</div>
-		<div id="channels">Channels</div>
-		<div id="customer-relationships">Customer Relationships</div>
-		<div id="revenue-streams">Revenue Streams</div>
-		<div id="key-resources">Key Resources</div>
-		<div id="key-activities">Key Activities</div>
-		<div id="key-partnerships">Key Partnerships</div>
-		<div id="cost-structure">Cost Structure</div>
+		<div id="customer-segments">
+			<h2>Customer Segments</h2>
+			<textarea name="" id="customer-segments-textarea"></textarea>
+		</div>
+		<div id="value-propositions">
+			<h2>Value Propositions</h2>
+			<textarea name="" id="value-propositions-textarea"></textarea>
+		</div>
+		<div id="channels">
+			<h2>Channels</h2>
+			<textarea name="" id="channels-textarea"></textarea>
+		</div>
+		<div id="customer-relationships">
+			<h2>Customer Relationships</h2>
+			<textarea name="" id="customer-relationships-textarea"></textarea>
+		</div>
+		<div id="revenue-streams">
+			<h2>Revenue Streams</h2>
+			<textarea name="" id="revenue-streams-textarea"></textarea>
+		</div>
+		<div id="key-resources">
+			<h2>Key Resources</h2>
+			<textarea name="" id="key-resources-textarea"></textarea>
+		</div>
+		<div id="key-activities">
+			<h2>Key Activities</h2>
+			<textarea name="" id="key-activities-textarea"></textarea>
+		</div>
+		<div id="key-partnerships">
+			<h2>Key Partnerships</h2>
+			<textarea name="" id="key-partnerships-textarea"></textarea>
+		</div>
+		<div id="cost-structure">
+			<h2>Cost Structure</h2>
+			<textarea name="" id="cost-structure-textarea"></textarea>
+		</div>
 	</div>
+	<script>
+		const cache = Array.from(document.querySelectorAll('#business-model-canvas textarea[id]')).reduce((acc, el) => {
+			acc[el.id] = el;
+			return acc;
+		}, {});
+		const handleInput = (event) => {
+			localStorage.setItem(event.target.id, event.target.value);
+		};
+		const setTextareaValues = () => {
+			console.log(cache)
+			Object.keys(cache).forEach((key) => {
+				const value = localStorage.getItem(key);
+				if (value) {
+					cache[key].value = value;
+				}
+			});
+		};
+		Object.values(cache).forEach((el) => el.addEventListener('input', handleInput));
+		window.addEventListener('load', setTextareaValues);
+	</script>
 </body>
 </html>
