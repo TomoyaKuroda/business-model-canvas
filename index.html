@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Business Model Canvas</title>
 	<style>
 		#business-model-canvas {
 			display: grid;
-			grid-template-columns: repeat(5, 1fr);
+			grid-template-columns: repeat(10, 1fr);
 			grid-template-rows: repeat(3, 1fr);
 			grid-column-gap: 0px;
 			grid-row-gap: 0px;
@@ -15,25 +15,46 @@
 			align-items: stretch;
 			min-height: 100svh;
 			#customer-segments {
-				grid-area: 1 / 5 / 3 / 6;
+				grid-area: 1 / 9 / 3 / 11;
 			}
 			#value-propositions {
 				grid-area: 1 / 3 / 3 / 4;
+			}
+			#channels {
+				grid-area: 2 / 4 / 3 / 5;
+			}
+			#customer-relationships {
+				grid-area: 1 / 4 / 2 / 5;
+			}
+			#revenue-streams {
+				grid-area: 3 / 3 / 4 / 4;
+			}
+			#key-resources {
+				grid-area: 3 / 4 / 4 / 5;
+			}
+			#key-activities {
+				grid-area: 4 / 1 / 5 / 2;
+			}
+			#key-partnerships {
+				grid-area: 4 / 2 / 5 / 3;
+			}
+			#cost-structure {
+				grid-area: 4 / 3 / 5 / 4;
 			}
 		}
 	</style>
 </head>
 <body>
 	<div id="business-model-canvas">
-		<div id="customer-segments"></div>
-		<div id="value-propositions"></div>
-		<div id="channels"></div>
-		<div id="customer-relationships"></div>
-		<div id="revenue-streams"></div>
-		<div id="key-resources"></div>
-		<div id="key-activities"></div>
-		<div id="key-partnerships"></div>
-		<div id="cost-structure"></div>
+		<div id="customer-segments">Customer Segments</div>
+		<div id="value-propositions">Value Propositions</div>
+		<div id="channels">Channels</div>
+		<div id="customer-relationships">Customer Relationships</div>
+		<div id="revenue-streams">Revenue Streams</div>
+		<div id="key-resources">Key Resources</div>
+		<div id="key-activities">Key Activities</div>
+		<div id="key-partnerships">Key Partnerships</div>
+		<div id="cost-structure">Cost Structure</div>
 	</div>
 </body>
 </html>
